@@ -7,6 +7,7 @@ import { categories } from "../utils/categories";
 
 const Home = () => {
   const { category } = useParams();
+  // const location = useLocation();
 
   const posts = usePostStore((state) => state.posts);
   const loading = usePostStore((state) => state.loading);
@@ -17,37 +18,54 @@ const Home = () => {
     fetchPosts(category || "");
   }, [category, fetchPosts]);
 
+  // useEffect(() => {
+  //   if (location.hash === "#posts-section") {
+  //     const section = document.getElementById("posts-section");
+
+  //     section?.scrollIntoView({
+  //       behavior: "smooth",
+  //     });
+  //   }
+  // }, [location]);
+  const handleCategoryClick = () => {
+    document.getElementById("posts-section")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   return (
     <div>
       {/* Hero Section */}
-      {!category && (
-        <section className="bg-blue-50 px-6 py-20">
-          <div className="mx-auto max-w-7xl">
-            <p className="mb-4 font-semibold text-blue-600">
-              Welcome to our blog
-            </p>
+      {/* {!category && ( */}
+      <section className="bg-blue-50 px-6 py-20">
+        <div className="mx-auto max-w-7xl">
+          <p className="mb-4 font-semibold text-blue-600">Welcome to my blog</p>
 
-            <h1 className="max-w-3xl text-4xl font-bold leading-tight text-gray-900 md:text-6xl">
-              Discover stories, ideas and perspectives.
-            </h1>
+          <h1 className="max-w-3xl text-4xl font-bold leading-tight text-gray-900 md:text-6xl">
+            Discover stories, ideas and perspectives.
+          </h1>
 
-            <p className="mt-6 max-w-2xl text-lg text-gray-600">
-              Explore interesting articles from different authors and discover
-              new ideas from our community.
-            </p>
+          <p className="mt-6 max-w-2xl text-lg text-gray-600">
+            Explore interesting articles from different authors and discover new
+            ideas from our community.
+          </p>
 
-            <Link
-              to="/authors"
-              className="mt-8 inline-block rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700"
-            >
-              Explore Authors
-            </Link>
-          </div>
-        </section>
-      )}
+          <Link
+            to="/authors"
+            className="mt-8 inline-block rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700"
+          >
+            Explore Authors
+          </Link>
+        </div>
+      </section>
+      {/* )} */}
 
       {/* Posts Section */}
-      <section className="mx-auto max-w-7xl px-6 py-12">
+      <section
+        id="posts-section"
+        className="mx-auto max-w-7xl scroll-mt-24 px-6 py-12"
+      >
         {/* Section Header */}
         <div className="mb-8">
           <h2 className="text-3xl font-bold text-gray-900">
@@ -65,6 +83,7 @@ const Home = () => {
         <div className="mb-10 flex flex-wrap gap-3">
           <Link
             to="/"
+            onClick={handleCategoryClick}
             className={`rounded-full px-4 py-2 transition ${
               !category
                 ? "bg-blue-600 text-white"
@@ -78,6 +97,7 @@ const Home = () => {
             <Link
               key={item}
               to={`/category/${item}`}
+              onClick={handleCategoryClick}
               className={`rounded-full px-4 py-2 transition ${
                 category === item
                   ? "bg-blue-600 text-white"

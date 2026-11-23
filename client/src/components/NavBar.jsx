@@ -20,9 +20,8 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 border-b border-gray-200 bg-white">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        {/* Logo */}
-        <Link to="/" className="text-2xl font-bold text-gray-900">
-          Blog<span className="text-blue-600">.</span>
+        <Link to="/" className="text-2xl font-bold text-blue-600">
+          Myint Mo's Blog
         </Link>
 
         {/* Navigation */}

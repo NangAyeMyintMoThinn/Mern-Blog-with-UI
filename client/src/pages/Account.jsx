@@ -7,7 +7,7 @@ const Account = () => {
   const currentUser = useAuthStore((state) => state.currentUser);
   const updateUser = useAuthStore((state) => state.updateUser);
 
-  //   const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -156,7 +156,7 @@ const Account = () => {
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900">My Account</h1>
 
-        <p className="mt-2 text-gray-500">Manage your personal information.</p>
+        <p className="mt-2 text-gray-500">Manage personal information.</p>
       </div>
 
       {error && (
@@ -173,7 +173,9 @@ const Account = () => {
 
       {/* Avatar */}
       <div className="mb-8 rounded-2xl bg-white p-8 shadow-sm">
-        <h2 className="mb-6 text-xl font-bold">Profile Picture</h2>
+        <h2 className="mb-6 w-full text-center text-xl font-bold">
+          Profile Picture
+        </h2>
 
         <form onSubmit={handleAvatarSubmit}>
           <div className="mb-6 flex flex-col items-center">
@@ -195,7 +197,7 @@ const Account = () => {
               type="file"
               accept="image/*"
               onChange={handleAvatarChange}
-              className="mt-5"
+              className="mt-5 max-w-full cursor-pointer rounded-lg border border-gray-300 bg-white p-2 text-sm text-gray-600 hover:border-blue-500"
             />
 
             <p className="mt-2 text-sm text-gray-500">Maximum size: 500KB</p>

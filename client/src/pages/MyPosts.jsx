@@ -99,7 +99,7 @@ const MyPosts = () => {
           {posts.map((post) => (
             <article
               key={post._id}
-              className="flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white md:flex-row"
+              className="flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white max-h-50 md:flex-row"
             >
               {/* Thumbnail */}
               <Link to={`/posts/${post._id}`} className="md:w-1/3">

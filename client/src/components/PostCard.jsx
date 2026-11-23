@@ -16,23 +16,23 @@ const PostCard = ({ post }) => {
 
       <div className="p-5">
         {/* Category */}
-        <Link
+        {/* <Link
           to={`/category/${post.category}`}
           className="inline-block rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-600"
         >
           {post.category}
-        </Link>
-
+        </Link> */}
+        <p className="inline-block rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-600">
+          {post.category}
+        </p>
         {/* Title */}
         <Link to={`/posts/${post._id}`}>
           <h2 className="mt-3 line-clamp-2 text-xl font-bold text-gray-900 hover:text-blue-600">
             {post.title}
           </h2>
         </Link>
-
         {/* Description */}
         <p className="mt-3 line-clamp-3 text-gray-600">{post.description}</p>
-
         {/* Author */}
         <div className="mt-5 flex items-center justify-between border-t pt-4">
           <div className="flex items-center gap-2">

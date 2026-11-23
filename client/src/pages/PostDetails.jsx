@@ -46,12 +46,15 @@ const PostDetails = () => {
   return (
     <article className="mx-auto max-w-4xl px-6 py-12">
       {/* Category */}
-      <Link
+      {/* <Link
         to={`/category/${post.category}`}
         className="inline-block rounded-full bg-blue-100 px-4 py-2 font-medium text-blue-600"
       >
         {post.category}
-      </Link>
+      </Link> */}
+      <p className="inline-block rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-600">
+        {post.category}
+      </p>
 
       {/* Title */}
       <h1 className="mt-6 text-3xl font-bold leading-tight text-gray-900 md:text-5xl">
